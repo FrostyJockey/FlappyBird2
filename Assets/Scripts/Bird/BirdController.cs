@@ -2,37 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class BirdController : MonoBehaviour
 {
+    [SerializeField] private KeyCode flap = KeyCode.W;
 
-    [SerializeField] private KeyCode up = KeyCode.W;
-    //[SerializeField] private KeyCode left = KeyCode.A;
-    //[SerializeField] private KeyCode down = KeyCode.S;
-    //[SerializeField] private KeyCode right = KeyCode.D;
     private TranslateMover translateMover;
+    private BirdPhysics birdPhysics;
 
     private void Awake()
     {
         translateMover = GetComponent<TranslateMover>();
+        birdPhysics = GetComponent<BirdPhysics>();
     }
 
     // Use this for initialization
     void Start()
     {
-
         var position = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        translateMover.Move(Vector3.right);
-
-        if (Input.GetKeyDown(up))
+        if (Input.GetKeyDown(flap))
         {
-            translateMover.Move(Vector3.up);
+            birdPhysics.Flap();
         }
-
     }
 }

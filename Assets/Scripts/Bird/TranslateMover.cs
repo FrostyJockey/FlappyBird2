@@ -6,16 +6,6 @@ public class TranslateMover : MonoBehaviour {
 
     [SerializeField] private float speed = 5;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void Move(Vector3 direction)
     {
         transform.Translate(direction * speed * Time.deltaTime);
